@@ -12,15 +12,65 @@
 </head>
 
 <body>
-  <main>
+  <main id="mascru-section">
     <img src="assets/images/fingerprint.svg" class="fingerprintImg" />
     <div class="container">
+      <section id="mascru-section" data-w-id="b2c6ebd6-479b-a074-ff92-be14d1288105"
+        class="section bg-primary relative fp-auto-height-responsive hide-btn wf-section">
+        <a href="#" class="cursor-wrapper no-strike modal-btn w-inline-block">
+          <div data-w-id="64541a5a-db1a-8e09-527c-412881642686" class="cursor">
+          </div>
+        </a>
+        <div class="container d-flex dr-ver height-100 w-container">
+          <div data-w-id="b2c6ebd6-479b-a074-ff92-be14d1288109" class="text-wrapper sect-5">
+            <div class="mascru w-embed">
+              <model-viewer alt="mascru-head" src="assets/3d/mascru-head.gltf" camera-orbit="0 0 0" disable-tap=""
+                touch-action="pan-y" class="mascru-3d"></model-viewer>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <h1>We are building.</h1>
-      <h3>Mascru will be launched soon.</h3>
+      <h3 style="padding: 20px 0;">Mascru will be launched soon.</h3>
+      <h3>Reach out on +91-9785057113.</h3>
 
       <p class="copyright">© 2022, Mascru MakerSpace. All rights reserved.</p>
     </div>
   </main>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script>
+    // 3D rotation
+    const modelViewer = document.getElementById("mascru-section");
+    const nika3d = document.querySelector(".mascru-3d");
+    if (modelViewer !== null) {
+      modelViewer.addEventListener("mousemove", (e) => {
+        let bounds = nika3d.getBoundingClientRect();
+        let x = e.clientX - bounds.left;
+        let y = e.clientY - bounds.top;
+        if (x <= 0 && y >= 80 && y <= 320) {
+          nika3d.setAttribute("camera-orbit", "25deg 0 0");
+        } else if (x >= 380 && y >= 80 && y <= 320) {
+          nika3d.setAttribute("camera-orbit", "-25deg 0 0");
+        } else if (x >= 0 && x <= 380 && y <= 80) {
+          nika3d.setAttribute("camera-orbit", "0 120deg 0");
+        } else if (x >= 0 && x <= 380 && y > 320) {
+          nika3d.setAttribute("camera-orbit", "0 60deg 0");
+        } else if (x < 0 && y < 80) {
+          nika3d.setAttribute("camera-orbit", "25deg 120deg 0");
+        } else if (x < 0 && y > 320) {
+          nika3d.setAttribute("camera-orbit", "25deg 60deg 0");
+        } else if (x > 380 && y > 320) {
+          nika3d.setAttribute("camera-orbit", "-25deg 60deg 0");
+        } else if (x > 380 && y < 80) {
+          nika3d.setAttribute("camera-orbit", "-25deg 120deg 0");
+        } else {
+          nika3d.setAttribute("camera-orbit", "0 0 0");
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>
