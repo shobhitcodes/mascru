@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles/reset.css" />
   <link rel="stylesheet" href="styles/style.css" />
-  <meta name="theme-color" content="#0b0f0c" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/m-logo.png" />
   <title>Mascru</title>
 </head>
@@ -15,14 +14,9 @@
   <main id="mascru-section">
     <img src="assets/images/fingerprint.svg" class="fingerprintImg" />
     <div class="container">
-      <section id="mascru-section" data-w-id="b2c6ebd6-479b-a074-ff92-be14d1288105"
-        class="section bg-primary relative fp-auto-height-responsive hide-btn wf-section">
-        <a href="#" class="cursor-wrapper no-strike modal-btn w-inline-block">
-          <div data-w-id="64541a5a-db1a-8e09-527c-412881642686" class="cursor">
-          </div>
-        </a>
-        <div class="container d-flex dr-ver height-100 w-container">
-          <div data-w-id="b2c6ebd6-479b-a074-ff92-be14d1288109" class="text-wrapper sect-5">
+      <section>
+        <div class="container">
+          <div>
             <div class="mascru w-embed">
               <model-viewer alt="mascru-head" src="assets/3d/mascru-head.gltf" camera-orbit="0 0 0" disable-tap=""
                 touch-action="pan-y" class="mascru-3d"></model-viewer>
@@ -36,7 +30,7 @@
       <h3 style="padding: 20px 0;">Reach out on +91-8929999699/9785057113.</h3>
       <h3>We're also listening on hey@mascru.com.</h3>
 
-      <p class="copyright">© 2022, Mascru MakerSpace. All rights reserved.</p>
+      <p class="copyright">© 2022, Mascru. All rights reserved.</p>
     </div>
   </main>
 
@@ -44,30 +38,30 @@
   <script>
     // 3D rotation
     const modelViewer = document.getElementById("mascru-section");
-    const nika3d = document.querySelector(".mascru-3d");
+    const mascru3d = document.querySelector(".mascru-3d");
     if (modelViewer !== null) {
       modelViewer.addEventListener("mousemove", (e) => {
-        let bounds = nika3d.getBoundingClientRect();
+        let bounds = mascru3d.getBoundingClientRect();
         let x = e.clientX - bounds.left;
         let y = e.clientY - bounds.top;
         if (x <= 0 && y >= 80 && y <= 320) {
-          nika3d.setAttribute("camera-orbit", "25deg 0 0");
+          mascru3d.setAttribute("camera-orbit", "25deg 0 0");
         } else if (x >= 380 && y >= 80 && y <= 320) {
-          nika3d.setAttribute("camera-orbit", "-25deg 0 0");
+          mascru3d.setAttribute("camera-orbit", "-25deg 0 0");
         } else if (x >= 0 && x <= 380 && y <= 80) {
-          nika3d.setAttribute("camera-orbit", "0 120deg 0");
+          mascru3d.setAttribute("camera-orbit", "0 120deg 0");
         } else if (x >= 0 && x <= 380 && y > 320) {
-          nika3d.setAttribute("camera-orbit", "0 60deg 0");
+          mascru3d.setAttribute("camera-orbit", "0 60deg 0");
         } else if (x < 0 && y < 80) {
-          nika3d.setAttribute("camera-orbit", "25deg 120deg 0");
+          mascru3d.setAttribute("camera-orbit", "25deg 120deg 0");
         } else if (x < 0 && y > 320) {
-          nika3d.setAttribute("camera-orbit", "25deg 60deg 0");
+          mascru3d.setAttribute("camera-orbit", "25deg 60deg 0");
         } else if (x > 380 && y > 320) {
-          nika3d.setAttribute("camera-orbit", "-25deg 60deg 0");
+          mascru3d.setAttribute("camera-orbit", "-25deg 60deg 0");
         } else if (x > 380 && y < 80) {
-          nika3d.setAttribute("camera-orbit", "-25deg 120deg 0");
+          mascru3d.setAttribute("camera-orbit", "-25deg 120deg 0");
         } else {
-          nika3d.setAttribute("camera-orbit", "0 0 0");
+          mascru3d.setAttribute("camera-orbit", "0 0 0");
         }
       });
     }
